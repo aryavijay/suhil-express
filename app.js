@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const { errorHandler } = require('./source/custom_lib/errorHandler')
 
 const apiRoute = require('./routes/apiRoute');
 
@@ -16,5 +17,8 @@ app.use(apiRoute)
 app.use("/", (req, res) => {
   res.send({ msg: "Not Implemented" })
 })
+
+
+app.use(errorHandler)
 
 module.exports = app;

@@ -3,7 +3,12 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/v1', function (req, res, next) {
-    res.send({ "name": "vijay", "title": "Sample proj", "version": 1 })
+    try {
+        throw new Error("CUSTOM_ERROR")
+        res.send({ error: false, msg: r })
+    } catch (ex) {
+        next(ex)
+    }
 });
 
 
