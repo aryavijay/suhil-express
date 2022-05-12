@@ -17,4 +17,6 @@ const {createUser, deleteUser, editUser, listUser} =  require('../../source/v1/c
 
 router.post("/v1/user", createUser)
 
+router.get("/v1/user", listUser)
+
 module.exports = router;

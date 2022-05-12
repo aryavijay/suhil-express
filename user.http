@@ -1,1 +1,5 @@
+### Create User
 POST http://localhost:3000/api/v1/user
+
+### GET USER LIST
+GET http://localhost:3000/api/v1/user

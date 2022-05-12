@@ -1,17 +1,25 @@
 const UserModel = require('../../../models/user.model')
 
-function createUser(req, res, next){
-
-    const user = UserModel.create({
-        name: 'vijay',
-        password: 'vijay',
-    })
-   res.send({msg:"In create User", user})
+async function createUser(req, res, next){
+    try {
+        const user = await UserModel.create({
+            name: 'vijay',
+            password: 'vijay',
+        })
+        res.send({msg: "In create User", user})
+    }catch(err){
+        next(err)
+    }
 }
 
 
-function listUser(req, res, next){
-
+async function listUser(req, res, next){
+    try {
+        const userList = await UserModel.findAndCountAll()
+        res.send({msg: "In User List", userList})
+    }catch(err){
+        next(err)
+    }
 }
 
 
